@@ -5,3 +5,5 @@ const { routerCustomer } = require("./routes.u.customers.js");
 
 router.use("/customers", routerCustomer);
 router.use("/souscriptions", routerTypeSouscription);
+
+module.exports = { router }

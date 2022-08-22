@@ -24,6 +24,9 @@ const Typesouscription = Configs.define('__tbl_type_souscriptions', {
         allowNull: false,
         defaultValue: 1
     }
+},{
+    timestamps: false,
+    freezeTableName: true
 });
 
 module.exports = { Typesouscription };

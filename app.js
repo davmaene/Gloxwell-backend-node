@@ -6,10 +6,11 @@ const parser = require("express-fileupload");
 const cookieParser = require("cookie-parser");
 const rateLimit = require("express-rate-limit");
 const { Response } = require("./helpers/helper.message.server.js");
-// ----------------------------------------------------------------------------
+
 dotenv.config();
 
-const PORT = process.env.PORT || 8100
+const PORT = process.env.PORT || 8100;
+
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
@@ -39,9 +40,16 @@ app.get("/", (req, res, next) => {
     })
 });
 
-app.use("/api", require("./routes/routes.routes.js"));
+app.use("/api", require("./routes/routes.routes.js")['router']);
+
+app.use((req, res, next) => {
+    return Response(res, 400, {
+        ressource: req.url,
+        port: PORT
+    });
+});
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port => ${PORT}`);
 });
 
