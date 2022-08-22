@@ -1,6 +1,7 @@
 {
   "name": "_backend",
   "version": "1.0.0",
+  "type": "commonjs",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -19,6 +20,8 @@
     "express-fileupload": "^1.4.0",
     "express-rate-limit": "^6.5.1",
     "moment": "^2.29.4",
-    "randomstring": "^1.2.2"
+    "mysql2": "^2.3.3",
+    "randomstring": "^1.2.2",
+    "sequelize": "^6.21.4"
   }
 }
